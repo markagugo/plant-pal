@@ -77,7 +77,7 @@ function ChatWidget() {
   ];
   
 
-  const genAI = new GoogleGenerativeAI("AIzaSyDFeowgP0Mn10UXKqO20pe59g_5T6BC_aU");
+  const genAI = new GoogleGenerativeAI("null");
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   async function interactWithChatBot(message) {
