@@ -42,48 +42,75 @@ function HomePage() {
             right: 0,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            p: 2,
-            backgroundColor: '#23501C',
-            color: 'white',
-            zIndex: 1300,
+          justifyContent: 'space-between',
+          p: 2,
+          backgroundColor: '#23501C',
+          color: 'white',
+         zIndex: 1300,
+         borderRadius: '8px',
+         boxShadow: '0 0 15px 5px rgba(0, 255, 0, 0.7)',
           }}
         >
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            {/* Add the logo before the text */}
+            <img src="/images/logo.png" alt="Logo" style={{ width: '100px', marginRight: '20px', marginLeft: '180px'}} />
+            <Typography variant="h3" sx={{ fontWeight: 'bold', textDecoration:'underline' }}>
           PlantPal
           </Typography>
+          </Box>
           <IconButton
             sx={{
               color: 'white',
+              fontFamily:'Arial, Helvetica, sans-serif',
+              textDecoration:'underline',
             }}
           >
             <AccountCircle />
           </IconButton>
         </Box>
-
         <Container
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '100%',
-            mt: 10, 
-            mb: 10
-          }}
-        >
-          <Grid container columnGap={2} rowGap={4} justifyContent="center">
-            {products.map((product) => (
-              <Grid item xs={12} sm={6} md={3} lg={3} key={product.name}>
-                <ImgMediaCard
-                  name={product.name}
-                  price={product.price}
-                  image={product.image}
-                  description={product.description}
-                />
-              </Grid>
-            ))}
+  sx={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    mt: 10, 
+    mb: 10
+  }}
+>
+  <Grid container spacing={2} alignItems="stretch">
+    {/* Grid item for the left side image */}
+    <Grid item xs={12} sm={4} md={3} lg={3}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', height: '100%', marginLeft:-25 }}>
+        <img
+          src="/images/picture.png"
+          alt="Side Image"
+          style={{ width: '650px', height: 'auto', borderRadius: '8px' }} 
+        />
+      </Box>
+    </Grid>
+
+    {/* Grid item for the product grid */}
+    <Grid item xs={12} sm={8} md={9} lg={8}>
+      <Grid container spacing={2} justifyContent="flex-start" alignItems="stretch" marginLeft={15} marginTop={7}>
+        {products.map((product) => (
+          <Grid item xs={13} sm={8} md={6} lg={3.5} key={product.name}>
+            <Box sx={{ height: '100%' }}>
+              <ImgMediaCard
+                name={product.name}
+                price={product.price}
+                image={product.image}
+                description={product.description}
+              />
+            </Box>
           </Grid>
-        </Container>
+        ))}
+      </Grid>
+    </Grid>
+  </Grid>
+</Container>
+
+        
 
         <ChatWidget />
       </Box>
