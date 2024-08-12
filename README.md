@@ -19,7 +19,7 @@
 
 - Mark Agugo
 - Ashmita Barnwal
-- Shannah Daniel
+- Shanah Daniel
 
 ## Future Updates
 
